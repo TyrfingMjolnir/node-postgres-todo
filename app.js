@@ -22,7 +22,7 @@ app.use( bodyParser.urlencoded( { extended: false } ) );
 app.use( cookieParser() );
 app.use( express.static( path.join( __dirname, 'client' ) ) );
 
-app.use( '/', routeMain );
+app.use( '/api/v1/todo', routeMain );
 // app.use('/user', routeUser );
 
 // catch 404 and forward to error handler
