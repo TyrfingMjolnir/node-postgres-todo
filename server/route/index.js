@@ -1,6 +1,7 @@
 const      express = require('express'),
             router = express.Router(),
                 pg = require('pg'),
+              pool = pg.Pool(),
               path = require('path'),
   connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
 
