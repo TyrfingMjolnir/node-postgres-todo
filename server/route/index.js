@@ -3,7 +3,7 @@ const      express = require('express'),
           { Pool } = require('pg'),
               path = require('path');
 
-/*
+
 const pool = new Pool({
   host:     'localhost',
   port:      5432,
@@ -12,6 +12,7 @@ const pool = new Pool({
   password: 'secretpassword',
 })
 
+/*
 pool.query( 'CREATE TABLE items( id SERIAL PRIMARY KEY, text TEXT not null, complete BOOLEAN )', ( err, res ) => {
   console.log( err, res )
   pool.end();
