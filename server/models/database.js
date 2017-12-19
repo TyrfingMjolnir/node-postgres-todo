@@ -1,8 +1,14 @@
-const pg = require('pg');
-const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
+const { Pool } = require('pg')
 
-const client = new pg.Client(connectionString);
-client.connect();
-const query = client.query(
-  'CREATE TABLE items(id SERIAL PRIMARY KEY, text VARCHAR(40) not null, complete BOOLEAN)');
-query.on('end', () => { client.end(); });
+const pool = new Pool({
+  host: 'localhost',
+  port: 5432,
+  database: 'todo',
+  user: 'user',
+  password: 'secretpassword',
+})
+
+pool.query( 'CREATE TABLE items( id SERIAL PRIMARY KEY, text TEXT not null, complete BOOLEAN )', ( err, res ) => {
+  console.log( err, res )
+  pool.end();
+})
