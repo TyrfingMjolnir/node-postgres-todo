@@ -1,10 +1,9 @@
 const      express = require('express'),
             router = express.Router(),
           { Pool } = require('pg'),
-              path = require('path');
+              path = require('path'),
 
-
-const pool = new Pool({
+              pool = new Pool({
   host:     'localhost',
   port:      5432,
   database: 'todo',
