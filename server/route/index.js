@@ -1,9 +1,22 @@
 const      express = require('express'),
             router = express.Router(),
-                pg = require('pg'),
-              pool = pg.Pool(),
-              path = require('path'),
-  connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/todo';
+          { Pool } = require('pg'),
+              path = require('path');
+
+/*
+const pool = new Pool({
+  host:     'localhost',
+  port:      5432,
+  database: 'todo',
+  user:     'user',
+  password: 'secretpassword',
+})
+
+pool.query( 'CREATE TABLE items( id SERIAL PRIMARY KEY, text TEXT not null, complete BOOLEAN )', ( err, res ) => {
+  console.log( err, res )
+  pool.end();
+})
+*/
 
 router.get( '/', ( req, res, next ) => {
   res.sendFile( path.join(
